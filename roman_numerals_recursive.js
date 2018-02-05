@@ -1,6 +1,20 @@
-function to_roman(input) {
+function to_roman(number) {
   // start your code here
-  return to_roman(input);
+  let romans = ['M', 'DC', 'D', 'CD', 'C', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+  let arabics = [1000, 600, 500, 400, 100, 50, 40, 10, 9, 5, 4, 1]
+  let resultRomantoArabic = ''
+  let i = 0;
+  // Melakukan Pengulangan Selama Panjang Kamus arabics
+  if (number === 0) {
+    return ''
+  } else {
+    while (i < arabics.length) {
+      if (number >= arabics[i]) {
+        return resultRomantoArabic += romans[i] + to_roman(number - arabics[i])
+      }
+      i++;
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
