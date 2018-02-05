@@ -1,6 +1,23 @@
+'use strict'
+
 function to_roman(input) {
   // start your code here
-  return to_roman(input);
+  let result = ''
+  const romawi = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+  const arabic = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+
+  if( input > 3000 ) {
+    return `Sorry, maximum input number is 3000`
+  } else if( input === 0 ) {
+    return result
+  } else {
+    for (let i = 0; i < arabic.length; i++) {
+      if( input >= arabic[i] ) {
+        result = romawi[i]
+        return result += to_roman( input - arabic[i] )
+      }
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
