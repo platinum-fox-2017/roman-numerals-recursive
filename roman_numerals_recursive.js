@@ -1,7 +1,21 @@
 function to_roman(input) {
   // start your code here
-  return to_roman(input);
+  var roman = ['I','IV','V','IX','X','XL','L','LX','C','CD','D','DC','M'];
+  var hasilRoman = [1,4,5,9,10,40,50,60,100,400,500,600,1000];
+
+  //STOPPER
+  if(input == 0) {
+    return ''
+  }
+
+  //REKURSIF
+  for(var i = hasilRoman.length-1; i >= 0; i--) {
+    if (input - hasilRoman[i] >= 0) {
+      return roman[i] + to_roman(input - hasilRoman[i])
+    }
+  }
 }
+
 
 console.log('My totally sweet testing script for new roman\n')
 console.log('input | expected | actual')
