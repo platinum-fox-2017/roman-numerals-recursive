@@ -1,14 +1,13 @@
 function to_roman(input) {
   var romanArray = ["I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"];
   var numberArray = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
-  var strRoman = "";
   if(input==0){
     return "";
   }
+
   for(var i =numberArray.length-1; i>=0; i--){
-    if(Math.floor(input/numberArray[i])>0){
-      strRoman = romanArray[i];
-      return strRoman+to_roman(input-=numberArray[i])
+    if(input/numberArray[i]>=1){
+      return romanArray[i]+to_roman(input-=numberArray[i])
     }
   }
 }
