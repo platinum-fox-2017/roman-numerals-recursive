@@ -1,6 +1,20 @@
 function to_roman(input) {
   // start your code here
-  return to_roman(input);
+  const arabic = [1000,900,600,500,400,100,90,60,50,40,10,9,6,5,4,1]
+  const roman = ["M","CM","DC","D","CD","C","XC","LX","L","XL","X","IX","VI","V","IV","I"]
+  let hasilConvert =''
+  if(input <1){
+    return ''
+  }
+  else{
+    for(let i =0; i<arabic.length; i++){
+      if(arabic[i]<=input){
+        hasilConvert+=roman[i]
+        // input-=arabic[i]
+        return hasilConvert + to_roman(input-arabic[i])
+      }
+    }
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
