@@ -1,6 +1,28 @@
+var listDecimalandRoman = [
+    {decimal: 1, roman : 'I'},
+    {decimal: 4, roman : 'IV'},
+    {decimal: 5, roman : 'V'},
+    {decimal: 9, roman : 'IX'},
+    {decimal: 10, roman : 'X'},
+    {decimal: 40, roman : 'XL'},
+    {decimal: 50, roman : 'L'},
+    {decimal: 90, roman : 'XC'},
+    {decimal: 100, roman : 'C'},
+    {decimal: 400, roman : 'CD'},
+    {decimal: 500, roman : 'D'},
+    {decimal: 900, roman : 'CM'},
+    {decimal: 1000, roman : 'M'}
+  ];
+
 function to_roman(input) {
-  // start your code here
-  return to_roman(input);
+  if (input == 0) return '';
+  return listDecimalandRoman[findIndex(input)].roman + to_roman(input - listDecimalandRoman[findIndex(input)].decimal);
+}
+
+function findIndex(num) {
+	for (var i = listDecimalandRoman.length - 1; i >= 0; i--) {
+		if (listDecimalandRoman[i].decimal <= num) return i;
+	}
 }
 
 console.log('My totally sweet testing script for new roman\n')
