@@ -1,6 +1,32 @@
-function to_roman(input) {
+function to_roman(num) {
   // start your code here
-  return to_roman(input);
+  var romanMatrix = [
+    [1000, 'M'],
+    [900, 'CM'],
+    [500, 'D'],
+    [400, 'CD'],
+    [100, 'C'],
+    [90, 'XC'],
+    [50, 'L'],
+    [40, 'XL'],
+    [10, 'X'],
+    [9, 'IX'],
+    [5, 'V'],
+    [4, 'IV'],
+    [1, 'I']
+  ];
+
+  for (let i = 0; i < romanMatrix.length; i++) {
+    if (num <= 0) {
+      return ''
+    } else {
+      if (num >= romanMatrix[i][0]) {
+        return romanMatrix[i][1] + to_roman(num - romanMatrix[i][0]);
+      }
+    }
+  }
+
+
 }
 
 console.log('My totally sweet testing script for new roman\n')
