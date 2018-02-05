@@ -1,6 +1,24 @@
 function to_roman(input) {
-  // start your code here
-  return to_roman(input);
+  if(input < 1){
+    return '';
+  } else {
+  // your implementation code here
+  var angkaArab = [1,4,5,9,10,40,50,100,400,500,900,1000];
+  var angkaromawi = ['I','IV','V','IX','X','XL','L','C','CD','D','CM','M'];
+  
+  var getRoman = '';
+  for(var i=angkaArab.length-1; i>=0; i--){
+    if(input >= angkaArab[i]){
+      // console.log(angkaArab[i]);
+      getRoman = angkaromawi[i];
+      var newNum = input-angkaArab[i];
+      break;
+    }
+  }
+  // return getRoman + '' + newNum;
+  return getRoman + '' + to_roman(newNum);
+
+  }
 }
 
 console.log('My totally sweet testing script for new roman\n')
