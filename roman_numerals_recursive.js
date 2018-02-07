@@ -1,20 +1,19 @@
 function to_roman(input) {
   // start your code here
-  numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
-  str = '';
+  var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  var romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  var str = '';
 
   if (input == 0){
     return '';
   } else {
-    for (i = 0; i < numbers.length; i++){
+    for (var i = 0; i < numbers.length; i++){
       if (input / numbers[i] >= 1){
         str = romans[i];
         input -= numbers[i];
-        break;
+        return str + to_roman(input);
       }
     }
-    return str + to_roman(input);
   }
 }
 
